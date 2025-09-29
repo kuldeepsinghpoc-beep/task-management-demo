@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management Demo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="app-title">Task Manager</h1>
+            <p class="app-subtitle">Stay organized and productive</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Task Input Section -->
+            <section class="task-input-section">
+                <div class="input-container">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="taskTitle" 
+                            placeholder="Task title..."
+                            class="task-input task-title-input"
+                            maxlength="100"
+                        >
+                        <textarea 
+                            id="taskDescription" 
+                            placeholder="Task description (optional)..."
+                            class="task-input task-description-input"
+                            rows="3"
+                            maxlength="500"
+                        ></textarea>
+                    </div>
+                    <button id="addTaskBtn" class="add-task-btn">
+                        <span class="btn-icon">+</span>
+                        <span class="btn-text">Add Task</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="stats-section">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTasks">0</span>
+                        <span class="stat-label">Total</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="activeTasks">0</span>
+                        <span class="stat-label">Active</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="completedTasks">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filter Section -->
+            <section class="filter-section">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Tasks</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section class="tasks-section">
+                <div id="tasksContainer" class="tasks-container">
+                    <!-- Tasks will be dynamically added here -->
+                </div>
+                
+                <!-- Empty State -->
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">📋</div>
+                    <h3 class="empty-title">No tasks yet</h3>
+                    <p class="empty-message">Add your first task to get started!</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Clear All Modal -->
+        <div id="clearAllModal" class="modal">
+            <div class="modal-content">
+                <h3>Clear All Tasks</h3>
+                <p>Are you sure you want to delete all tasks? This action cannot be undone.</p>
+                <div class="modal-actions">
+                    <button id="cancelClearAll" class="btn-secondary">Cancel</button>
+                    <button id="confirmClearAll" class="btn-danger">Clear All</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Task Modal -->
+        <div id="deleteTaskModal" class="modal">
+            <div class="modal-content">
+                <h3>Delete Task</h3>
+                <p>Are you sure you want to delete this task?</p>
+                <div class="modal-actions">
+                    <button id="cancelDeleteTask" class="btn-secondary">Cancel</button>
+                    <button id="confirmDeleteTask" class="btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Task Management Demo | Built for POC-1</p>
+    </footer>
+
+    <script src="js/task.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
